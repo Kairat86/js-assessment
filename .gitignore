@@ -1,6 +1,3 @@
 npm-debug.log
 node_modules/
-.idea/js-assessment.iml
-.idea/misc.xml
-.idea/modules.xml
-.idea/workspace.xml
+/.idea/
