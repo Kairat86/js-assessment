@@ -8,16 +8,14 @@ exports.countAnswers = {
             stop: false,
 
             startCounting: function () {
-                new Promise(function (resolve, reject) {
-                    var i = start;
-                    console.log(i);
-                    var interval = setInterval(function () {
-                        console.log(++i);
-                        if (i == end | stop) {
-                            clearInterval(interval);
-                        }
-                    }, 100);
-                });
+                var i = start;
+                console.log(i);
+                var interval = setInterval(function () {
+                    console.log(++i);
+                    if (i == end | stop) {
+                        clearInterval(interval);
+                    }
+                }, 100);
             },
 
             cancel: function () {
