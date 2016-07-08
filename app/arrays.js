@@ -13,10 +13,9 @@ exports.arraysAnswers = {
     },
 
     remove: function (arr, item) {
-        while (arr.includes(item)) {
-            arr.splice((arr.indexOf(item)), 1);
-        }
-        return arr;
+        return arr.filter(function (arrItem) {
+            return arrItem != item;
+        });
     },
 
     removeWithoutCopy: function (arr, item) {
@@ -63,15 +62,15 @@ exports.arraysAnswers = {
     },
 
     duplicates: function (arr) {
-        var resultArr = [];
-        arr.forEach(function (item) {
-            arr.shift();
-            if ((arr.indexOf(item) != -1) && (resultArr.indexOf(item) == -1)) {
-                resultArr.push(item);
+        return arr.filter(function (item, index) {
+            if (arr.length / 2 < index) {
+                return false;
             }
-        })
-
-        return resultArr;
+            if (index > 0) {
+                arr.shift();
+            }
+            return (arr.indexOf(item) != arr.lastIndexOf(item));
+        });
     },
 
     square: function (arr) {
@@ -86,7 +85,6 @@ exports.arraysAnswers = {
             if (item == target) {
                 resArr.push(index);
             }
-
         })
         return resArr;
     }
