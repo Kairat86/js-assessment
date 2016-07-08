@@ -7,7 +7,7 @@ exports.countAnswers = {
 
             stop: false,
 
-            promise: function () {
+            startCounting: function () {
                 new Promise(function (resolve, reject) {
                     var i = start;
                     console.log(i);
@@ -25,7 +25,7 @@ exports.countAnswers = {
             }
         };
 
-        counter.promise(start, end);
+        counter.startCounting(start, end);
         return counter;
     }
 };
