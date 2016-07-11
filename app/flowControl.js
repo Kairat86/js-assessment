@@ -10,16 +10,16 @@ exports.flowControlAnswers = {
         //
         // otherwise the function should return the number, or false if no number
         // was provided or the value provided is not a number
-
-        if (num % 15 == 0) {
-            return 'fizzbuzz';
+        if (typeof (num) !== 'number') {
+            return false;
         }
-        else if (num % 5 == 0) {
-            return 'buzz';
+        var result = '';
+        if (num % 3 == 0) {
+            result = 'fizz';
         }
-        else if (num % 3 == 0) {
-            return 'fizz';
+        if (num % 5 == 0) {
+            result += 'buzz';
         }
-        return (num == null || typeof (num) !== 'number') ? false : num;
+        return result ? result : num;
     }
 };
