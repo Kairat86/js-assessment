@@ -35,18 +35,38 @@ exports.functionsAnswers = {
     },
 
     useArguments: function () {
-
+        var sum = 0;
+        for (var i = 0; i < arguments.length; i++) {
+            sum += arguments[i];
+        }
+        return sum;
     },
 
     callIt: function (fn) {
-
+        return fn.apply(null, Array.prototype.slice.call(arguments, 1));
     },
 
     partialUsingArguments: function (fn) {
-
+        var slice = Array.prototype.slice,
+            holderArray = slice.call(arguments, 1);
+        return function () {
+            var new_args = slice.call(arguments),
+                args = holderArray.concat(new_args);
+            return fn.apply(null, args);
+        };
     },
 
     curryIt: function (fn) {
+        var slice = Array.prototype.slice;
+        var args = slice.call(arguments, 1);
+        return function curry(a) {
+            args = args.concat(slice.call(arguments, 0));
+            if (fn.length === args.length) {
+                return fn.apply(undefined, args);
+            }
+            return curry;
+        };
 
     }
+
 };
