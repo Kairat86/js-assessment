@@ -5,20 +5,19 @@ exports.countAnswers = {
     count: function (start, end) {
 
         var counter = {
-            var: stop = false,
             startCounting: function () {
                 var i = start;
                 console.log(i);
-                var interval = setInterval(function () {
+                interval = setInterval(function () {
                     console.log(++i);
-                    if (i == end || stop) {
+                    if (i == end) {
                         clearInterval(interval);
                     }
                 }, 100);
             },
 
             cancel: function () {
-                stop = true;
+                clearInterval(interval);
             }
         };
 
