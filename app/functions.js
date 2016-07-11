@@ -62,7 +62,7 @@ exports.functionsAnswers = {
         return function curry(a) {
             args = args.concat(slice.call(arguments, 0));
             if (fn.length === args.length) {
-                return fn.apply(undefined, args);
+                return fn.apply(null, args);
             }
             return curry;
         };
