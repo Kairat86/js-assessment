@@ -50,8 +50,8 @@ exports.functionsAnswers = {
         var slice = Array.prototype.slice,
             holderArray = slice.call(arguments, 1);
         return function () {
-            var new_args = slice.call(arguments),
-                args = holderArray.concat(new_args);
+            var newArgs = slice.call(arguments),
+                args = holderArray.concat(newArgs);
             return fn.apply(null, args);
         };
     },
