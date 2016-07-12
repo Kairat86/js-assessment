@@ -1,19 +1,24 @@
 exports = typeof window === 'undefined' ? global : window;
 
 exports.numbersAnswers = {
-  valueAtBit: function(num, bit) {
+    valueAtBit: function (num, bit) {
+        var binString = num.toString(2);
+        return parseInt(binString.charAt(binString.length - bit));
+    },
 
-  },
+    base10: function (str) {
+        return parseInt(str, 2);
+    },
 
-  base10: function(str) {
+    convertToBinary: function (num) {
+        var binString = num.toString(2);
+        while (binString.length != 8) {
+            binString = '0' + binString;
+        }
+        return binString;
+    },
 
-  },
-
-  convertToBinary: function(num) {
-
-  },
-
-  multiply: function(a, b) {
-
-  }
+    multiply: function (a, b) {
+        return parseFloat((a * b).toPrecision(1));
+    }
 };
